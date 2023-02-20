@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>th:block 요소</title>
+</head>
+<body>
+<!-- th:block 요소를 선언하면 이후부터는 하나의 단위 실행 {}처럼 처리됩니다
+이 블락 요소내에서는 블락 요소가 없을 때 보다 간편하게 조건이나 루프등을 사용할 수 있습니다
+보통은 루프등을 처리할때 많이 사용합니다 -->
+<h2>th:block 사용하기</h2>
+<ul>
+	<th:block th:each="dto : ${list}">
+		<li th:text="${dto.sno % 3 == 0 ? dto.first : dto.last}"></li>
+			
+	</th:block>
+</ul>
+</body>
+</html>

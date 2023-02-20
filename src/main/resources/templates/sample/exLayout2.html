@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<th:block th:replace="~{/sample/fragments/fragment2 :: 
+	target(~{this::#ulFirst}, ~{this::#ulSecond})}">
+	
+<ul id="ulFirst">
+	<li>스프링</li>
+	<li>어려워</li>
+	<li>탈주 ㄱㄱ</li>
+</ul>
+
+<ul id="ulSecond">
+	<li>jpa</li>
+	<li>어려워</li>
+	<li>탈주 ㄱㄱ</li>
+</ul>
+
+
+
+</th:block>

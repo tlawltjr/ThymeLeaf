@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+<!-- @{} 링크를 처리하는 요소입니다
+@{여기엔 링크시 적용될 값 표현}, 태그와 태그 사이 or text 속성을 이용해서 사용자에게 
+보여질 링크값을 표시해주면 됩니다 -->
+<h2>th:block 사용해 보기</h2>
+<ul>
+	<li th:each="dto : ${list}">
+		<a th:href="@{/smple/view(sno=${dto.sno})}">[[${dto}]]</a>
+	</li>
+</ul>
+<hr color="orange">
+
+<h3>동적으로 파라미터를 생성해서 보내는 방식1
+	path(paramName=${value})
+	path(/sample/view)&(sno=${dto.sno}paramName=${data})
+</h3>
+
+<h3>동적으로 파라미터를 생성해서 보내는 방식2
+	path/{paramName}(paramName=${value})
+</h3>	
+
+<ul>
+	<li th:each="dto : ${list}">
+		<a th:href="@{/sample/view/{sno}(sno=${dto.sno})}">[[${dto}]]</a>
+</ul>
+
+<hr color="orange">
+
+<h2>format 객체 이전에 봤던 날짜 포멧터 외에 숫자 포멧터도 있습니다
+숫자형 포멧 객체명은 #numbers 입니다. 이후 포멧할 값 타입의 메서드(동일명)를 
+호출하여 2번째 파라미터 값에 포멧값을 지정 합니다</h2>
+<ul>
+	<li th:each="dto : ${list}">
+		[[${#numbers.formatInteger(dto.sno,10)}]]<br>
+	</li>
+</ul>
+</body>
+</html>

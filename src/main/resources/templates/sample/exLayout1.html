@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>Fragment 속성을 이용 페이지의 조각 내용 Include 하기.</title>
+</head>
+<body>
+<!-- fragment로 선언된 조각 내용을 가져다 쓸때는 아래의 문법을 사용합니다.
+th:replace or insert="~{URL :: fragmentName}" -->
+
+<h1>조각 페이지 가져오기</h1>
+<h2>Layout1 Fragment</h2>
+<div th:replace="~{/sample/fragments/fragment1 :: part1}"></div>
+<h2>Layout2 Fragment</h2>
+<div th:insert="~{/sample/fragments/fragment1 :: part2}"></div>
+<h2>Layout3 Fragment</h2>
+<div th:replace="~{/sample/fragments/fragment1 :: part3}"></div>
+<h2>Layout4 Fragment</h2>
+<div th:replace="~{/sample/fragments/fragment1}"></div>
+</body>
+</html>

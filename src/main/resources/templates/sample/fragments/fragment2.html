@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>fragment target 예제</title>
+</head>
+<body>
+<h3>target을 이용한 조각페이지로 Layout CSS부분 적용해보기</h3>
+<div th:fragment="target(first,second)">
+
+	<style>
+		.c1{
+			background-color: orange;
+		}
+		.c2{
+			background-color: gray;
+		}
+	</style>
+
+	<!-- 위에서 정의한 CSS를 replace시 적용될 fragment로 선언합니다 
+	단, 위에서 target으로 이미 이름을 지정했기에 그 이름을 그대로 사용합니다
+	-->
+	<div class="c1">
+		<th:block th:replace="${first}"></th:block>
+	</div>
+	<div class="c2">
+		<th:block th:replace="${second}"></th:block>
+	</div>
+</div>
+</body>
+</html>

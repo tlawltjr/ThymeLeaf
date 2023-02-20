@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>Inline 속성이용해보기</title>
+</head>
+<body>
+<!-- th:inline 속성 : 보통 자바스크립트를 코드내에서 타임리프와 연동하기
+위해 사용되는 속성입니다. 값으로는 연동될 코드 or 스크립트를 넣어주게 되는데
+ex)th:inline = "javascript", 이 후부터는 값을 표현하여 스크립트에 주입 가능합니다 -->
+<h2 th:text="${result}"></h2>
+<h2 th:text="${dto}"></h2>
+
+<script type="text/javascript" th:inline="javascript">
+	//스크립트 내의 변수에 값 대입해봅니다
+	var msg = [[${result}]];
+	var dto = [[${dto}]];
+</script>
+</body>
+</html>
